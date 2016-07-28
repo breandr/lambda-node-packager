@@ -1,0 +1,7 @@
+{
+  "bucket": "poke-go-sentry",
+  "fileName": "s2geometry-node2.zip",
+  "packages": {
+      "s2geometry-node": "^1.3.0"
+    }
+}

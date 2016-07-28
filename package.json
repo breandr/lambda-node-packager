@@ -1,0 +1,36 @@
+{
+  "name": "lambda-node-packager",
+  "version": "0.5.0",
+  "description": "Build Node.js packages in AWS Lambda using AWS Lambda.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrbret/lambda-node-packager.git"
+  },
+  "scripts": {
+    "local": "node local.js",
+    "clean": "rm lambda-node-packager.zip",
+    "zip": "zip -r lambda-node-packager.zip index.js package.json node_modules",
+    "update": "npm run zip && aws lambda update-function-code --function-name lambda-node-packager --zip-file fileb://lambda-node-packager.zip",
+    "invoke": "aws lambda invoke --function-name lambda-node-packager --payload file://payload.json lambda-node-packager.txt",
+    "zip-update-invoke": "npm run update && npm run invoke"
+  },
+  "author": "John Titus",
+  "license": "MIT",
+  "dependencies": {
+    "archiver": "^1.0.1",
+    "aws-sdk": "^2.4.10",
+    "bluebird": "^2.10.1",
+    "flowsync": "^0.1.12",
+    "fs-extra": "^0.30.0",
+    "glob": "^7.0.5",
+    "npm": "^3.10.5",
+    "temp": "^0.8.3"
+  },
+  "bugs": {
+    "url": "https://github.com/andrbret/lambda-node-packager/issues"
+  },
+  "homepage": "https://github.com/andrbret/lambda-node-packager#readme",
+  "devDependencies": {},
+  "keywords": []
+}
